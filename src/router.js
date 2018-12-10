@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import Mapa from "./components/Mapa.vue";
+import Habitos from "./components/Habitos.vue";
+import Revista from "./components/Revista.vue";
 
 Vue.use(Router);
 
@@ -12,6 +15,21 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: '/mapa',
+      name: 'Mapa',
+      component: Mapa,
+    },
+    {
+      path: '/psicotropedia',
+      name: 'Revista',
+      component: Revista,
+    },
+    {
+      path: '/habitos',
+      name: 'Habitos',
+      component: Habitos,
     },
     {
       path: "/about",
