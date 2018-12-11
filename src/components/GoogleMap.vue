@@ -37,11 +37,11 @@ export default {
     this.distanceService = new google.maps.DistanceMatrixService()
     this.bounds = new google.maps.LatLngBounds();
     var vue = this;
-    this.geolocate().then( (position) => {
+    //this.geolocate().then( (position) => {
         const element = document.getElementById(this.mapName)
         this.options = {
             zoom: 15,
-            center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+            center: new google.maps.LatLng(/*position.coords.latitude*/-29.818640,-51.155640/*position.coords.longitude*/)
         }
         this.map = new google.maps.Map(element, this.options);
         var marker = new google.maps.Marker({
@@ -57,7 +57,6 @@ export default {
         })
         this.markers.push(marker)
         this.getCentros();
-    });
   },
   methods: {
         geolocate: function(options) {
@@ -67,7 +66,7 @@ export default {
             },
         getCentros(){
             var vue = this;
-            this.$http.get('http://192.168.15.12:3050/getAllpoints').then(function (response) {
+            this.$http.get('http://192.168.15.12:3060/getAllpoints').then(function (response) {
                 response.data.forEach((ponto) => {
                     var position = new google.maps.LatLng(ponto.coordenadas.coordinates[0], ponto.coordenadas.coordinates[1]);
                     var icon = (ponto.tipo == 'Reuniao')? vue.rehabMarker: (ponto.tipo == 'Academia')? vue.gymMarker: vue.healthMarker;

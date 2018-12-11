@@ -21,7 +21,7 @@ export default {
         top: 0;
         left: 0;
         background-repeat: no-repeat;
-        height: 7vh;
+        height: 10vh;
         width: 100%;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         .texto{
@@ -37,6 +37,12 @@ export default {
         z-index: 999;
     }
     .Desktop{
-        background: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #F2F2F2;
+        height: 10vh;
+        z-index: 999;
     }
 </style>

@@ -3,11 +3,14 @@
         <div v-bind:class="{'SideBar': Width > 600, 'Footer': Width < 600}">
             <img class='border left' v-if='Width < 600' src="../assets/footerBorda.png">
             <img class='border right' v-if='Width < 600' src="../assets/footerBorda.png">
-            <img class='Link' @click="$router.push({name: 'Mapa'})" src="../assets/Ping.png">
-            <img class='Link divisor' src="../assets/divisor.png">
-            <img class='Link' @click="$router.push({name: 'Revista'})" src="../assets/Livro.png">
-            <img class='Link divisor' src="../assets/divisor.png">
-            <img class='Link' @click="$router.push({name: 'Habitos'})" src="../assets/Hábitos.png">
+            <img v-if='Width < 600' class='Link' @click="$router.push({name: 'Mapa'})" src="../assets/Ping.png">
+            <img v-if='Width < 600' class='Link divisor' src="../assets/divisor.png">
+            <img v-if='Width < 600' class='Link' @click="$router.push({name: 'Revista'})" src="../assets/Livro.png">
+            <img v-if='Width < 600' class='Link divisor' src="../assets/divisor.png">
+            <img v-if='Width < 600' class='Link' @click="$router.push({name: 'Habitos'})" src="../assets/Hábitos.png">
+            <div v-else>
+
+            </div>
         </div>
     </div>    
 </template>
@@ -21,14 +24,15 @@ export default {
     .SideBar{
         position: fixed;
         left: 0;
-        width: 7vw;
+        width: 15vw;
         height: 100%;
-        top: 7vh;
+        top: 10vh;
+        background: #F2F2F2;
     }
     .Footer{
         background: #F2F2F2;
         position: fixed;
-        height: 7vh;
+        height: 10vh;
         width: 100%;
         left: 0;
         display: flex;
@@ -44,7 +48,7 @@ export default {
             width: 1px;
         }
         .border{
-            height: 7vh;
+            height: 10vh;
         }
         .right{
             position: absolute;
